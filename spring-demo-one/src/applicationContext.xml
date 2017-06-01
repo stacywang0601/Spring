@@ -5,22 +5,26 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
-
+    
+	<!-- load the properties file: sport.properties -->
+	<context:property-placeholder location="classpath:sport.properties" />
+	
 	<!-- add entry to enable component scanning -->
-
 	<context:component-scan base-package="com.luv2code.springdemo" />
 	<!-- define the dependency -->
 	<bean id="myFortune" class="com.pers.springdemo.HappyFortuneService"></bean>
 	<bean id="myCoach" class="com.pers.springdemo.TrackCoach">
 		<!-- set up constructor injection -->
-		<constructor-arg ref= "myFortune"> </constructor-arg>
+		<constructor-arg ref="myFortune">
+		</constructor-arg>
 	</bean>
 	<bean id="myCricketCoach" class="com.pers.springdemo.CricketCoach">
 		<!-- set up setter injection -->
-		<property name = "fortuneService" ref= "myFortune"> </property>
-				<!-- inject literal values -->   
-		<property name="emailAddress" value="theBestCoach@gmail.com" />
-		<property name="team" value="Sunrise" />
+		<property name="fortuneService" ref="myFortune">
+		</property>
+		<!-- inject literal values -->
+		<property name="emailAddress" value="${foo.email}" />
+		<property name="team" value="${foo.team}" />
 	</bean>
 
 </beans> 
