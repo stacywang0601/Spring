@@ -3,7 +3,7 @@ package com.pers.springdemo;
 import org.springframework.stereotype.Component;
 
 // bean id
-@Component("thatSillyCoach")
+@Component
 public class TennisCoach implements Coach {
 
 	@Override
