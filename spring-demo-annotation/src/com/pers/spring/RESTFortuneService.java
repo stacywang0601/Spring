@@ -1,8 +1,8 @@
-package com.pers.springdemo;
+package com.pers.spring;
 
 import org.springframework.stereotype.Component;
 
-import com.pers.springdemo.FortuneService;
+import com.pers.spring.FortuneService;
 
 @Component
 public class RESTFortuneService implements FortuneService {
